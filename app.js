@@ -141,14 +141,14 @@ document.addEventListener("DOMContentLoaded", () => {
     voice: `
       <h3>🎙️ Voice Assistant</h3>
       <p>Convert text into a confident AI voice.</p>
-      <a href="index.html" class="btn-primary">Open Voice Studio</a>
+      <a href="index.html" style="margin-top:10px;" class="btn-primary">Open Voice Studio</a>
     `,
     notes: `
       <h3>📝 Notes</h3>
       <textarea id="notesArea" style="width:100%;height:120px;" placeholder="Write notes..."></textarea>
       <br><br>
       <button class="btn-primary" onclick="saveNotes()">Save Notes</button>
-      <p class="muted">Stored locally in your browser.</p>
+      <p class="muted" style="margin-top:10px;">Stored locally in your browser.</p>
     `
   };
 
