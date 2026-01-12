@@ -165,15 +165,46 @@ function loadNotes() {
   document.getElementById("notesArea").value = saved;
 }
 
+    function handleSignup(e) {
+  e.preventDefault();
+
+  const user = {
+    username: document.getElementById("username").value,
+    email: document.getElementById("email").value,
+    mobile: document.getElementById("mobile").value
+  };
+
+  localStorage.setItem("clarityUser", JSON.stringify(user));
+  window.location.href = "login.html";
+}
+
+
+    function handleLogin(e) {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const savedUser = JSON.parse(localStorage.getItem("clarityUser"));
+
+  if (!savedUser || savedUser.email !== email) {
+    alert("Invalid credentials");
+    return;
+  }
+
+  localStorage.setItem("claritySession", "active");
+  window.location.href = "dashboard.html";
+}
+
+
 /* ===== Logout ===== */
 function logout() {
-  localStorage.removeItem("username");
+  localStorage.removeItem("claritySession");
   window.location.href = "base.html";
 }
 
-document.getElementById("logoutBtn").onclick = logout;
-document.getElementById("sidebarLogout").onclick = logout;
+const sidebarLogout = document.getElementById("sidebarLogout");
+if (sidebarLogout) sidebarLogout.onclick = logout;
 });
+
 
 
 
