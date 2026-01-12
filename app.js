@@ -80,13 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
       navMenu.classList.toggle("active");
       menuToggle.classList.toggle("open");
     });
-
-    navMenu.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-        menuToggle.classList.remove("open");
-      });
-    });
   }
 
   if (themeToggle) {
@@ -118,9 +111,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ===============================
-     DASHBOARD USER
+     USER / SESSION
   =============================== */
+  const session = localStorage.getItem("claritySession");
   const storedUser = JSON.parse(localStorage.getItem("clarityUser"));
+
   if (storedUser && document.getElementById("username")) {
     document.getElementById("username").innerText = storedUser.username;
   }
@@ -141,7 +136,9 @@ document.addEventListener("DOMContentLoaded", () => {
     voice: `
       <h3>🎙️ Voice Assistant</h3>
       <p>Convert text into a confident AI voice.</p>
-      <a href="index.html" style="margin-top:10px;" class="btn-primary">🎙️ Open Voice Studio</a>
+      <a href="index.html" class="btn-primary" style="margin-top:10px;">
+        🎙️ Open Voice Studio
+      </a>
     `,
     notes: `
       <h3>📝 Notes</h3>
@@ -161,13 +158,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  window.saveNotes = function () {
-    const notes = document.getElementById("notesArea").value;
-    localStorage.setItem("clarity_notes", notes);
+  window.saveNotes = () => {
+    localStorage.setItem(
+      "clarity_notes",
+      document.getElementById("notesArea").value
+    );
     alert("Notes saved!");
   };
 
-  window.loadNotes = function () {
+  window.loadNotes = () => {
     document.getElementById("notesArea").value =
       localStorage.getItem("clarity_notes") || "";
   };
@@ -175,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===============================
      AUTH
   =============================== */
-  window.handleSignup = function (e) {
+  window.handleSignup = e => {
     e.preventDefault();
     const user = {
       username: document.getElementById("username").value,
@@ -186,19 +185,21 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "login.html";
   };
 
-  window.handleLogin = function (e) {
+  window.handleLogin = e => {
     e.preventDefault();
     const email = document.getElementById("email").value;
     const savedUser = JSON.parse(localStorage.getItem("clarityUser"));
+
     if (!savedUser || savedUser.email !== email) {
       alert("Invalid credentials");
       return;
     }
+
     localStorage.setItem("claritySession", "active");
     window.location.href = "dashboard.html";
   };
 
-  window.logout = function () {
+  window.logout = () => {
     localStorage.removeItem("claritySession");
     window.location.href = "base.html";
   };
@@ -210,30 +211,18 @@ document.addEventListener("DOMContentLoaded", () => {
   =============================== */
   document.getElementById("deleteAccount")?.addEventListener("click", e => {
     e.preventDefault();
-    const ok = confirm("Delete account permanently?");
-    if (!ok) return;
+    if (!confirm("Delete account permanently?")) return;
     localStorage.removeItem("clarityUser");
     localStorage.removeItem("claritySession");
     window.location.href = "base.html";
   });
-const session = localStorage.getItem("claritySession");
 
-  const signup = document.getElementById("navSignup");
-  const login = document.getElementById("navLogin");
-  const dashboard = document.getElementById("navDashboard");
-  const logoutBtn = document.getElementById("navLogout");
-
-  if (session === "active") {
-    if (signup) signup.style.display = "none";
-    if (login) login.style.display = "none";
-    if (dashboard) dashboard.style.display = "block";
-    if (logoutBtn) logoutBtn.style.display = "block";
-  }
-
-const session = localStorage.getItem("claritySession");
+  /* ===============================
+     NAV VISIBILITY
+  =============================== */
   const backBtn = document.getElementById("backToDashboard");
-
   if (session === "active" && backBtn) {
     backBtn.style.display = "inline-block";
   }
+
 });
