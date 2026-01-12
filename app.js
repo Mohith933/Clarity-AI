@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
     voice: `
       <h3>🎙️ Voice Assistant</h3>
       <p>Convert text into a confident AI voice.</p>
-      <a href="index.html" style="margin-top:10px;" class="btn-primary">Open Voice Studio</a>
+      <a href="index.html" style="margin-top:10px;" class="btn-primary">🎙️ Open Voice Studio</a>
     `,
     notes: `
       <h3>📝 Notes</h3>
@@ -216,5 +216,24 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("claritySession");
     window.location.href = "base.html";
   });
+const session = localStorage.getItem("claritySession");
 
+  const signup = document.getElementById("navSignup");
+  const login = document.getElementById("navLogin");
+  const dashboard = document.getElementById("navDashboard");
+  const logoutBtn = document.getElementById("navLogout");
+
+  if (session === "active") {
+    if (signup) signup.style.display = "none";
+    if (login) login.style.display = "none";
+    if (dashboard) dashboard.style.display = "block";
+    if (logoutBtn) logoutBtn.style.display = "block";
+  }
+
+const session = localStorage.getItem("claritySession");
+  const backBtn = document.getElementById("backToDashboard");
+
+  if (session === "active" && backBtn) {
+    backBtn.style.display = "inline-block";
+  }
 });
