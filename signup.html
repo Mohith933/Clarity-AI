@@ -34,7 +34,7 @@
   </nav>
     <div class="auth-container">
     <h2>Create Account</h2>
-    <form onsubmit="window.location.href='login.html'; return false;">
+    <form onsubmit="handleSignup(event)">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" name="username" id="username" required>
@@ -62,4 +62,5 @@
 <script src="app.js"></script>
 </body>
 </html>
+
 
