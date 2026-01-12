@@ -165,7 +165,8 @@ function loadNotes() {
   document.getElementById("notesArea").value = saved;
 }
 
-    function handleSignup(e) {
+/* ===== Signup ===== */
+function handleSignup(e) {
   e.preventDefault();
 
   const user = {
@@ -179,7 +180,8 @@ function loadNotes() {
 }
 
 
-    function handleLogin(e) {
+/* ===== Login ===== */
+function handleLogin(e) {
   e.preventDefault();
 
   const email = document.getElementById("email").value;
@@ -201,10 +203,29 @@ function logout() {
   window.location.href = "base.html";
 }
 
-const sidebarLogout = document.getElementById("sidebarLogout");
-if (sidebarLogout) sidebarLogout.onclick = logout;
-});
+document.getElementById("sidebarLogout")?.addEventListener("click", logout);
 
+
+/* ===== Delete Account ===== */
+function deleteAccount() {
+  const confirmDelete = confirm(
+    "Are you sure you want to permanently delete your account?\nThis action cannot be undone."
+  );
+
+  if (!confirmDelete) return;
+
+  // Remove stored user + session
+  localStorage.removeItem("clarityUser");
+  localStorage.removeItem("claritySession");
+
+  // Redirect to landing page
+  window.location.href = "base.html";
+}
+
+document.getElementById("deleteAccount")?.addEventListener("click", (e) => {
+  e.preventDefault();
+  deleteAccount();
+});
 
 
 
