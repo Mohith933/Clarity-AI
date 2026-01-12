@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarity AI – Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ✅ Dashboard Layout -->
+<div class="dashboard-layout">
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+  <h2>Clarity AI</h2>
+  <ul>
+    <li><a href="#" data-page="home">🏠 Dashboard</a></li>
+    <li><a href="#" data-page="voice">🎙️ Voice Assistant</a></li>
+    <li><a href="#" data-page="notes">📝 Notes</a></li>
+    <li><a href="#" id="sidebarLogout">🚪 Logout</a></li>
+  </ul>
+</aside>
+
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Topbar -->
+    <header class="topbar">
+        <div class="hamburger" id="hamburger">
+  ☰
+</div>
+      <h2>Welcome, <span id="username">User</span></h2>
+      <div class="theme-toggle" id="theme-toggle" style="
+    margin-left: 0px;
+">🌞</div>
+    </header>
+
+    <!-- Content Area -->
+    <section id="content-area" class="dashboard-section">
+      <!-- Default content -->
+      <h3>📊 Dashboard Overview</h3>
+      <p>Welcome to Clarity AI. Use the sidebar to explore features.</p>
+    </section>
+
+  </main>
+</div>
+<div class="overlay" id="overlay"></div>
+<script src="app.js"></script>
+
+</body>
+</html>
