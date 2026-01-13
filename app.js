@@ -150,9 +150,9 @@ document.addEventListener("DOMContentLoaded", () => {
     about: `
     <h3>ℹ️ About Clarity AI</h3>
     <p>
-      Clarity AI is a frontend-only voice assistant using the Web Speech API
-      to deliver confident and clear speech output.
-    </p>
+  Clarity AI is a frontend-only voice assistant built to explore
+  human-friendly voice UX using the Web Speech API.
+</p>
     <ul>
       <li>✔ Web Speech API</li>
       <li>✔ Frontend-only</li>
