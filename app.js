@@ -106,20 +106,28 @@ document.addEventListener("DOMContentLoaded", () => {
      SIDEBAR
   =============================== */
   const hamburger = document.getElementById("hamburger");
-  const sidebar = document.getElementById("sidebar");
-  const overlay = document.getElementById("overlay");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
 
-  if (hamburger && sidebar && overlay) {
-    hamburger.addEventListener("click", () => {
-      sidebar.classList.toggle("active");
-      overlay.classList.toggle("active");
-    });
+if (hamburger && sidebar && overlay) {
+  hamburger.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+  });
 
-    overlay.addEventListener("click", () => {
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+
+  // ✅ CLOSE SIDEBAR WHEN ANY LINK IS CLICKED
+  sidebar.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
       sidebar.classList.remove("active");
       overlay.classList.remove("active");
     });
-  }
+  });
+}
 
   /* ===============================
      USER
