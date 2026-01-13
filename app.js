@@ -147,13 +147,18 @@ document.addEventListener("DOMContentLoaded", () => {
       <p>Convert text into a confident AI voice.</p>
       <a href="index.html" class="btn-primary" style="margin-top:10px;">🎙️ Open Voice Studio</a>
     `,
-    notes: `
-      <h3>📝 Notes</h3>
-      <textarea id="notesArea" style="width:100%;height:120px;" placeholder="Write notes..."></textarea>
-      <br><br>
-      <button class="btn-primary" onclick="saveNotes()">Save Notes</button>
-      <p class="muted" style="margin-top:10px;">Stored locally in your browser.</p>
-    `
+    about: `
+    <h3>ℹ️ About Clarity AI</h3>
+    <p>
+      Clarity AI is a frontend-only voice assistant using the Web Speech API
+      to deliver confident and clear speech output.
+    </p>
+    <ul>
+      <li>✔ Web Speech API</li>
+      <li>✔ Frontend-only</li>
+      <li>✔ Privacy-first</li>
+    </ul>
+  `
   };
 
   document.querySelectorAll(".sidebar a[data-page]").forEach(link => {
