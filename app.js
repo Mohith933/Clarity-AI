@@ -152,8 +152,8 @@ if (hamburger && sidebar && overlay) {
     `,
     voice: `
       <h3>🎙️ Voice Assistant</h3>
-      <p>Convert text into a confident AI voice.</p>
-      <a href="index.html" class="btn-primary" style="margin-top:10px;">🎙️ Open Voice Studio</a>
+      <p style="margin-bottom:20px;">Convert text into a confident AI voice.</p>
+      <a href="index.html" class="btn-primary">🎙️ Open Voice Studio</a>
     `,
     about: `
     <h3>ℹ️ About Clarity AI</h3>
